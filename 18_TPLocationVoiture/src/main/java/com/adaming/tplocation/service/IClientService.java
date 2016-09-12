@@ -1,10 +1,8 @@
-package com.adaming.tplocation.dao;
-
+package com.adaming.tplocation.service;
 
 import com.adaming.tplocation.entities.Client;
 
-public interface IClientDAO extends IGenericDAO<Client>{
-
+public interface IClientService extends IGenericService<Client> {
 
 	public Client add(Client client, Long pIdAgence);
 
