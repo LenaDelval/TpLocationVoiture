@@ -46,7 +46,7 @@ public abstract class GenericDaoImpl<T> implements IGenericDAO<T> {
 		@Override
 		public List<T> getAll() {
 			Query query = em.createQuery("from " + type.getSimpleName());
-			log.info("il existe " + query.getResultList().size() + " " + type.getSimpleName() + "dans la BDD");
+			log.info("il existe " + query.getResultList().size() + " " + type.getSimpleName() + " dans la BDD");
 			return query.getResultList();
 		}
 

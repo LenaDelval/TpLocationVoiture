@@ -1,7 +1,6 @@
 package com.adaming.tplocation.dao;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import org.springframework.stereotype.Component;
 
@@ -18,9 +17,7 @@ public class ClientDAOImpl extends GenericDaoImpl<Client> implements IClientDAO 
 	public Client add(Client client, Long pIdAgence) {
 		
 		Agence a = em.find(Agence.class, pIdAgence);
-		List<Agence> agences = new ArrayList<Agence>();
-		agences.add(a);
-		client.setListeAgences(agences);
+		client.setAgence(a);
 		em.persist(client);
 		log.info(" Le client  : " + client + " a bien été ajouté !");
 		return client;

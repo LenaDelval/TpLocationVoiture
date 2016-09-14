@@ -2,7 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <h:head>
     	<title>JSF 2.0 Hello World</title>
@@ -10,5 +12,46 @@
     <h:body bgcolor="white">
     	<h2>JSF 2.0 Hello World Example - welcome.xhtml</h2>
     	<h2>Welcome #{helloBean.name}</h2>
+    	
+    	
+    	
+    	<p:panelGrid border="1" value="#{AgenceBean.listeAgences}"
+						var="agence">
+						<h:outputText value="#{AgenceBean}" />
+
+
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="Id" />
+							</f:facet>
+							<h:outputText value="#{agence.idAgence}" />
+						</p:column>
+
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="Nom" />
+							</f:facet>
+							<h:outputText value="#{agence.nom}" />
+						</p:column>
+						
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="Adresse" />
+							</f:facet>
+							<h:outputText value="#{agence.adresse}" />
+						</p:column>
+
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="Mail" />
+							</f:facet>
+							<h:outputText value="#{agence.mail}" />
+						</p:column>
+					</p:panelGrid>
+    	
+    	
+    	
+    	
+    	
     </h:body>
 </html>

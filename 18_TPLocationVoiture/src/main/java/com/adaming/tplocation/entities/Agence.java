@@ -2,16 +2,13 @@ package com.adaming.tplocation.entities;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 
@@ -29,10 +26,7 @@ public class Agence {
 	private String telephone;
 	private String mail;
 	
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(name="agence_clients",
-			joinColumns= @JoinColumn(name="agence_id", referencedColumnName="id_agence"),
-						inverseJoinColumns=@JoinColumn(name="client_id"))
+	@OneToMany(mappedBy="agence")
 	private List<Client> listeClients;
 	
 	@OneToMany(mappedBy="agence", fetch=FetchType.EAGER)

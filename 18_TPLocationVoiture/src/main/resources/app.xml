@@ -11,6 +11,61 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd"
 		>
+		
+<!-- Injection Bean Client -->
+
+<bean id="daoClient" class="com.adaming.tplocation.dao.ClientDAOImpl"/>
+
+<bean id="serviceClient" class="com.adaming.tplocation.service.ClientServiceImpl">
+
+<property name="dao" ref="daoClient"></property>
+
+</bean>		
+
+
+<!-- Injection Bean Voiture -->
+
+<bean id="daoVoiture" class="com.adaming.tplocation.dao.VoitureDAOImpl"/>
+
+<bean id="serviceVoiture" class="com.adaming.tplocation.service.VoitureServiceImpl">
+
+<property name="dao" ref="daoVoiture"></property>
+
+</bean>	
+
+<!-- Injection Bean Agence -->
+
+<bean id="daoAgence" class="com.adaming.tplocation.dao.AgenceDAOImpl"/>
+
+<bean id="serviceAgence" class="com.adaming.tplocation.service.AgenceServiceImpl">
+
+<property name="dao" ref="daoAgence"></property>
+
+</bean>
+
+
+<!-- Injection Bean Reservation -->
+
+<bean id="daoReservation" class="com.adaming.tplocation.dao.ReservationDAOImpl"/>
+
+<bean id="serviceReservation" class="com.adaming.tplocation.service.ReservationServiceImpl">
+
+<property name="dao" ref="daoReservation"></property>
+
+</bean>
+
+
+<!-- Injection Bean Facture -->
+
+<bean id="daoFacture" class="com.adaming.tplocation.dao.FactureDAOImpl"/>
+
+<bean id="serviceFacture" class="com.adaming.tplocation.service.FactureServiceImpl">
+
+<property name="dao" ref="daoFacture"></property>
+
+</bean>
+		
+		
 
 
 <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->

@@ -1,7 +1,6 @@
 package com.adaming.tplocation.entities;
 
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -63,7 +62,6 @@ public class Reservation {
 		super();
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
-		setPrixTotal();
 		
 	}
 
@@ -80,8 +78,8 @@ public class Reservation {
 		this.idReservation = idReservation;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
-		setPrixTotal();
 	}
+	
 	
 	
 	/* Getters & Setters */
@@ -146,13 +144,8 @@ public class Reservation {
 	/**
 	 * @param prixTotal the prixTotal to set
 	 */
-	public void setPrixTotal() {
-		
-		long duration  = this.getDateFin().getTime() - this.getDateDebut().getTime();
-		double diffInHours = TimeUnit.MILLISECONDS.toHours(duration);
-		double diffInDays = Math.floor(diffInHours/24);
-		
-		this.prixTotal = this.voiture.getPrix()*diffInDays;
+	public void setPrixTotal(double prixTotal) {	
+		this.prixTotal = prixTotal;	
 	}
 
 

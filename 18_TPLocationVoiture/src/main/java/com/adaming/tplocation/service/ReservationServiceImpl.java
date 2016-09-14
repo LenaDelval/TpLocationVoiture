@@ -27,7 +27,6 @@ public class ReservationServiceImpl implements IReservationService {
 
 	@Override
 	public Reservation add(Reservation resa) {
-		
 		return dao.add(resa);
 	}
 	
@@ -35,14 +34,12 @@ public class ReservationServiceImpl implements IReservationService {
 	@Override
 	public Reservation add(Reservation resa, Long pIdAgence, Long pIdClient,
 			Long pIdVoiture) {
-		
 		return dao.add(resa, pIdAgence, pIdClient, pIdVoiture);
 	}
 	
 
 	@Override
 	public Reservation update(Reservation resa) {
-		
 		return dao.update(resa);
 	}
 
@@ -57,6 +54,9 @@ public class ReservationServiceImpl implements IReservationService {
 		
 		return dao.getById(pId);
 	}
+	
+	
+	
 	
 	
 

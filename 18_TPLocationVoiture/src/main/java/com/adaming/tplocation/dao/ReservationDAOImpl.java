@@ -1,8 +1,9 @@
 package com.adaming.tplocation.dao;
 
+
+import java.util.concurrent.TimeUnit;
+
 import org.springframework.stereotype.Component;
-
-
 
 
 
@@ -31,12 +32,21 @@ public class ReservationDAOImpl extends GenericDaoImpl<Reservation> implements I
 		Voiture v = em.find(Voiture.class, pIdVoiture);
 		reservation.setVoiture(v);
 		
+			
+		long duration  = reservation.getDateFin().getTime() - reservation.getDateDebut().getTime();
+		double diffInHours = TimeUnit.MILLISECONDS.toHours(duration);
+		double diffInDays = Math.floor(diffInHours/24);
+			
+		double prixTotal = reservation.getVoiture().getPrix()*diffInDays;
+		reservation.setPrixTotal(prixTotal);
+
 		em.persist(reservation);
 		
 		log.info(" La réservation  : " + reservation + " a bien été ajoutée !");
 		
 		return reservation;
 	}
+
 	
 	
 	

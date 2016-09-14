@@ -7,4 +7,6 @@ public interface IReservationService extends IGenericService<Reservation> {
 	public Reservation add(Reservation resa, Long pIdAgence, Long pIdClient,
 			Long pIdVoiture);
 
+
+
 }

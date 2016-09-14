@@ -24,6 +24,7 @@ public class Facture {
 	
 	@Temporal(TemporalType.DATE)
 	private Date dateFacturation;
+	
 	private String typePaiement;
 	
 	@ManyToOne
